@@ -1,10 +1,20 @@
 const dotenv = require('dotenv');
 const { Composer, Markup, Scenes, session, Telegraf } = require("telegraf");
 const QRCode = require('easyqrcodejs-nodejs');
-const { bashCompletionSpecFromOptions } = require('dashdash');
+
+const API_TOKEN = process.env.API_TOKEN || '';
+const PORT = process.env.PORT || 3000;
+const URL = process.env.URL || 'https://safe-chamber-86873.herokuapp.com/';
+
 
 dotenv.config();
-const bot = new Telegraf(process.env.BOT_TOKEN)
+
+// Local
+// const bot = new Telegraf(process.env.BOT_TOKEN)
+
+// Heroku
+const bot = new Telegraf(API_TOKEN);
+
 
 const stepHandler = new Composer();
 
@@ -140,8 +150,11 @@ bot.start((ctx) => {
     return ctx.scene.enter("mainMenu")
 })
 
-// Polling
-bot.launch()
+// Polling for local
+// bot.launch()
+
+bot.telegram.setWebhook(`${URL}/bot${API_TOKEN}`);
+bot.startWebhook(`/bot${API_TOKEN}`, null, PORT)
 
 // Enable graceful stop
 process.once('SIGINT', () => bot.stop('SIGINT'))
