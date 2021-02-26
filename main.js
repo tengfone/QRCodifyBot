@@ -2,7 +2,7 @@ const dotenv = require('dotenv');
 const { Composer, Markup, Scenes, session, Telegraf } = require("telegraf");
 const QRCode = require('easyqrcodejs-nodejs');
 
-const API_TOKEN = process.env.API_TOKEN || '';
+const API_TOKEN = process.env.API_TOKEN;
 const PORT = process.env.PORT || 2000;
 const URL = process.env.URL;
 
