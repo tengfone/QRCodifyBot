@@ -8,6 +8,9 @@
   },
   "keywords": [],
   "author": "TengFone",
+  "engines": {
+    "node": "15.6.0"
+  },
   "license": "ISC",
   "dependencies": {
     "dotenv": "^8.2.0",
