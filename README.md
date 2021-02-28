@@ -1,5 +1,5 @@
 # QRCodifyBot
-Check out the functioning bot on Telegram [here](https://t.me/QRCodifyBot)..
+Check out the functioning bot on Telegram [here](https://t.me/QRCodifyBot)
 
 This is my experimental codes for Telegraf 4.X Wizard Scenes.
 
@@ -13,6 +13,6 @@ This is my experimental codes for Telegraf 4.X Wizard Scenes.
 - Dotenv
 
 ## Notes:
-For the plain QR code, it is using the Free API call found [here](http://goqr.me/api/).
-.env file is excluded for security purposes
-Procfile is for Heroku Deployment
+For the plain QR code, it is using the Free API call found [here](http://goqr.me/api/)  
+.env file is excluded for security purposes   
+Procfile is for Heroku Deployment  
