@@ -323,3 +323,6 @@ async function QRMaker(username, inputtedText, customLogo) {
     return savedFilePath
 }
 
+// Heroku Useful commands
+// heroku scale web=0
+// heroku scale bot=1
