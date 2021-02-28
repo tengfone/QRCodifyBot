@@ -4,7 +4,7 @@ Check out the functioning bot on Telegram [here](https://t.me/QRCodifyBot)..
 This is my experimental codes for Telegraf 4.X Wizard Scenes.
 
 ## Screenshots
-<img src="./demo.gif" width="800" height="800">
+![](./demo.gif)
 
 ## Libraries used
 - NodeJS
