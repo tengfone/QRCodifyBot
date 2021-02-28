@@ -1,19 +1,19 @@
 const dotenv = require('dotenv');
 const { Composer, Markup, Scenes, session, Telegraf } = require("telegraf");
 const QRCode = require('easyqrcodejs-nodejs');
+dotenv.config();
 
+// Reading from .env file
 const QRCODIFYBOT = process.env.QRCODIFYBOT;
 const DEVBOT = process.env.DEVBOT;
 const PORT = process.env.PORT || 2000;
 const URL = process.env.URL;
 const WHOISRUNNING = process.env.WHOISRUNNING;
 
-dotenv.config();
-
 if (WHOISRUNNING !== "DEV") {
-    const bot = new Telegraf(QRCODIFYBOT)
+    var bot = new Telegraf(QRCODIFYBOT)
 } else {
-    const bot = new Telegraf(DEVBOT)
+    var bot = new Telegraf(DEVBOT)
 }
 
 const stepHandler = new Composer();
@@ -121,6 +121,7 @@ const stage = new Scenes.Stage([mainMenu, plainQR, customQR], {
     // default: 'mainMenu', // Having a default is bad practice
 });
 
+
 bot.use(session());
 bot.use((ctx, next) => {
     const now = new Date();
@@ -159,8 +160,8 @@ bot.start((ctx) => {
 // Running of bot
 if (WHOISRUNNING !== "DEV") {
     // Polling for Heroku
-    bot.telegram.setWebhook(`${URL}/bot${API_TOKEN}`);
-    bot.startWebhook(`/bot${API_TOKEN}`, null, PORT);
+    bot.telegram.setWebhook(`${URL}/bot${QRCODIFYBOT}`);
+    bot.startWebhook(`/bot${QRCODIFYBOT}`, null, PORT);
     bot.launch();
 
 } else {
