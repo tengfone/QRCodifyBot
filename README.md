@@ -18,7 +18,7 @@ For the plain QR code, it is using the Free API call found [here](http://goqr.me
 Procfile is for Heroku Deployment  
 
 ## Resources:
-[Official Telegram Docs](https://core.telegram.org/bots/api)
-[Telegraf Inline Menu](https://www.npmjs.com/package/telegraf-inline-menu)(Did not use this, although it will be good to implement)
-[Telegraf V3 Docs](https://telegraf.js.org/v3)
-[Telegraf V4 Docs](https://telegraf.js.org/classes/composer.html)
+[Official Telegram Docs](https://core.telegram.org/bots/api)  
+[Telegraf Inline Menu](https://www.npmjs.com/package/telegraf-inline-menu)(Did not use this, although it will be good to implement)  
+[Telegraf V3 Docs](https://telegraf.js.org/v3)  
+[Telegraf V4 Docs](https://telegraf.js.org/classes/composer.html)  
