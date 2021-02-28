@@ -76,6 +76,10 @@ stepHandlerCustom.action('qrnext', (ctx) => {
     return ctx.wizard.next();
 });
 
+stepHandlerCustom.command('start', async (ctx) => {
+    return ctx.scene.enter("mainMenu");
+});
+
 stepHandlerCustom.use((ctx) => ctx.replyWithMarkdown('Send me your logo image!'));
 
 
