@@ -10,10 +10,10 @@ const WHOISRUNNING = process.env.WHOISRUNNING;
 
 dotenv.config();
 
-if (WHOISRUNNING == "DEV") {
-    const bot = new Telegraf(DEVBOT)
+if (WHOISRUNNING !== "DEV") {
+    const bot = new Telegraf(QRCODIFYBOT)
 } else {
-    const bot = new Telegraf(QRCODIFYBOT);
+    const bot = new Telegraf(DEVBOT)
 }
 
 const stepHandler = new Composer();
@@ -120,6 +120,7 @@ const mainMenu = new Scenes.WizardScene('mainMenu', async (ctx) => {
 const stage = new Scenes.Stage([mainMenu, plainQR, customQR], {
     // default: 'mainMenu', // Having a default is bad practice
 });
+
 bot.use(session());
 bot.use((ctx, next) => {
     const now = new Date();
@@ -156,13 +157,14 @@ bot.start((ctx) => {
 })
 
 // Running of bot
-if (WHOISRUNNING == "DEV") {
-    // Polling for local
-    bot.launch();
-} else {
+if (WHOISRUNNING !== "DEV") {
     // Polling for Heroku
     bot.telegram.setWebhook(`${URL}/bot${API_TOKEN}`);
     bot.startWebhook(`/bot${API_TOKEN}`, null, PORT);
+    bot.launch();
+
+} else {
+    // Polling for local
     bot.launch();
 }
 
